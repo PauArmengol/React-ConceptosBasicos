@@ -19,30 +19,37 @@ const grupo = {
 
 const GrupoReact = () => {
 
+
     const [integrante, setIntegrante] = useState(0);
 
-    const increment = () => {
-        integrante < (grupo.integrantes.length - 1) ? setIntegrante(integrante + 1) : setIntegrante(0);
+    const handleIncrement = () => {
+        setIntegrante((prev) => (prev + 1) % grupo.integrantes.length);
     };
 
-    const decrement = () => {
-        integrante === 0 ? setIntegrante(grupo.integrantes.length - 1) : setIntegrante(integrante - 1);
+    const handleDecrement = () => {
+        setIntegrante((prev) => (prev - 1 + grupo.integrantes.length) % grupo.integrantes.length);
     };
+
+    const integranteActual = grupo.integrantes[integrante];
 
     return (
         <>
-            <button onClick={decrement}>←</button>
+            <button 
+                onClick={handleDecrement}
+            >←</button>
+
             <h1>Somos {grupo.titulo}</h1>
             <h2>Este es nuestro grupo de trabajo de React comisión 23646</h2>
-            <h2>{grupo.integrantes[integrante].nombre}</h2>
-            <p>{grupo.integrantes[integrante].edad} años</p>
             <br />
-            <button onClick={increment}>→</button>
+            <h2>{integranteActual.nombre}</h2>
+            <p>Edad: {integranteActual.edad} años</p>
+            <br />
+
+            <button 
+                onClick={handleIncrement}
+            >→</button>
         </>
-    )
-
-
+    );
 }
 
-   
 export default GrupoReact;

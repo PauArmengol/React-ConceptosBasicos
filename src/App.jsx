@@ -4,7 +4,9 @@ import React from 'react';
 import Props from './temario/Props';
 import Tarea1 from './tareas/Tarea1';
 import Estados from './temario/Estados';
-import Contador from './tareas/Contador';
+//import Contador from './tareas/Contador';
+import Efectos from './temario/Efectos';
+import GrupoReact from './tareas/TareaGrupal';
 
 const App = () => {
   return (
@@ -24,10 +26,14 @@ const App = () => {
         
     /> */
 
-      <Contador />
+      /* <Contador /> */
 
-   /*  <Estados />
+      /* <Estados />  */
+
+/*       <Efectos />
  */
+        <GrupoReact />
+        
 
   )
 }

@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 // El ciclo de vida de un componente es el conjunto de estados por los que pasa un componente desde que se crea hasta que se destruye
 // Los estados por los que pasa un componente son:
 
@@ -12,3 +14,22 @@
 // 2. Actualización: se ejecuta el método render y el método componentDidUpdate
 
 // 3. Desmontaje: se ejecuta el método componentWillUnmount
+
+export class CicloDeVida extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state= {
+            value: 0,
+        };
+    };
+
+    render() {
+        return (
+        <div>CicloDeVida</div>
+        )
+    }
+}
+
+// export default CicloDeVida

@@ -3,7 +3,10 @@ import "./Contador.css";
 
 const Contador = () => {
 
-    const [contador, setContador] = useState(0);
+    //buena practica es que el INITIAL_VALUE esté en un archivo de constantes aparte.
+    const INITIAL_VALUE = 0;
+
+    const [contador, setContador] = useState(INITIAL_VALUE);
 
     const handleClickIncrement = () => {
         setContador(contador + 1 );
@@ -13,11 +16,18 @@ const Contador = () => {
         setContador(contador - 1)
     };
 
+    const handleClickReset = () => {
+        setContador(INITIAL_VALUE)
+    };
+
+    const handleIncrementBy = (num) => {
+        setContador(contador + num)
+       
+    };
+
     return (
 
         <div className='contador'>
-
-            <h1>Contador</h1>
 
             <button
             onClick={handleClickIncrement}
@@ -29,6 +39,15 @@ const Contador = () => {
             onClick={handleClickDecrement}
             >-</button>
 
+            <button 
+            className='reset'
+            onClick={handleClickReset}
+            >Reset</button>
+
+            <button
+            className='incrementby'
+            onClick={() => handleIncrementBy(5)}
+            >Increment By</button>
 
         </div>
 

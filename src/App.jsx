@@ -6,7 +6,30 @@ import Tarea1 from './tareas/Tarea1';
 import Estados from './temario/Estados';
 //import Contador from './tareas/Contador';
 import Efectos from './temario/Efectos';
-import GrupoReact from './tareas/TareaGrupal';
+import EstadosInnecesarios from './tareas/TareaGrupal';
+import Formularios from './temario/Formularios';
+import Cronometro from './tareas/Cronometro';
+import Reloj from './tareas/Reloj';
+
+const users = [
+  {
+    id: 1,
+    name: "User 1",
+    age: 20,
+  },
+  {
+    id: 2,
+    name: "User 2",
+    age: 30,
+  },
+  {
+    id: 3,
+    name: "User 3",
+    age: 40,
+  },
+  
+];
+
 
 const App = () => {
   return (
@@ -32,10 +55,12 @@ const App = () => {
 
 /*       <Efectos />
  */
-        <GrupoReact />
+         /* <EstadosInnecesarios users={users} /> 
+ */
+        /* <Formularios /> */
         
-
+        <Reloj /> 
   )
 }
 
-export default App
+export default App;

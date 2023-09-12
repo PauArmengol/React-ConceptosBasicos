@@ -1,55 +1,46 @@
 import React, { useState, useEffect } from 'react';
 
-const grupo = {
-    titulo: 'GrupoReact',
-    integrantes: [{
-        nombre: 'Paula Armengol',
-        edad: 37
-    },
-    {
-        nombre: 'Juan Jose Villagra',
-        edad: 30
-    }, 
-    {
-        nombre: 'Demian perez Straga',
-        edad: 30
-    }, 
-    ],
-}
-
-const GrupoReact = () => {
+import User from '../ejemplos/User';
 
 
-    const [integrante, setIntegrante] = useState(0);
+const EstadosInnecesarios = ({ users }) => {
 
-    const handleIncrement = () => {
-        setIntegrante((prev) => (prev + 1) % grupo.integrantes.length);
+    //objetivo: 
+    //controlamos el INDICE y mostramos o no un USUARIO:
+
+    //1º: TENER EL INDICE GUARDADO EN UN ESTADO (currentIndex):
+    const [currentIndex, setCurrentIndex] = useState(0);
+   
+    //2º: SETEO EL ESTADO (setCurrentIndex): 
+    const handleNextUser = () => {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+
+        //CON OPERADOR TERNARIO:
+        /* const newIndex = (currentIndex + 1 > users.length - 1) ? 0 : currentIndex + 1; */
+        /* setCurrentIndex(newIndex); */
+    
     };
 
-    const handleDecrement = () => {
-        setIntegrante((prev) => (prev - 1 + grupo.integrantes.length) % grupo.integrantes.length);
+    const handlePrevUser = () => {
+        //CON OPERADOR TERNARIO:
+        /* const newIndex = (currentIndex - 1 < 0) ? users.length - 1 : currentIndex - 1; */
+        /* setCurrentIndex(newIndex); */
     };
-
-    const integranteActual = grupo.integrantes[integrante];
 
     return (
-        <>
-            <button 
-                onClick={handleDecrement}
-            >←</button>
+        <div>
+            <button onClick={handleNextUser}>{"-->"}</button>
 
-            <h1>Somos {grupo.titulo}</h1>
-            <h2>Este es nuestro grupo de trabajo de React comisión 23646</h2>
-            <br />
-            <h2>{integranteActual.nombre}</h2>
-            <p>Edad: {integranteActual.edad} años</p>
-            <br />
+        
+            <User
+                name={users[currentIndex].name}
+                age={users[currentIndex].age}
+            />
 
-            <button 
-                onClick={handleIncrement}
-            >→</button>
-        </>
+            <button onClick={handlePrevUser}>{"<--"}</button>
+        </div>
     );
-}
+};
 
-export default GrupoReact;
+
+export default EstadosInnecesarios;

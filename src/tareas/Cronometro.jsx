@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 
 const Cronometro = () => {
 
+    // aca tengo 2 estados 
     const [segundos, setSegundos] = useState(0);
     const [corriendo, setCorriendo] = useState(false);
 

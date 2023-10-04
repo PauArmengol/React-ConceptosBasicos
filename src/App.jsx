@@ -4,12 +4,34 @@ import React from 'react';
 import Props from './temario/Props';
 import Tarea1 from './tareas/Tarea1';
 import Estados from './temario/Estados';
-//import Contador from './tareas/Contador';
+import Contador from './tareas/Contador';
 import Efectos from './temario/Efectos';
 import EstadosInnecesarios from './tareas/TareaGrupal';
 import Formularios from './temario/Formularios';
 import Cronometro from './tareas/Cronometro';
-import Reloj from './tareas/Reloj';
+
+import CronometroUseRef from './tareas/CronometroUseRef';
+import FormNoControlados from './temario/FormNoControlados';
+import Ref from './temario/Ref';
+import FormNoControlado2 from './temario/FormNoControlado2';
+import Padre from './temario/Cb/Padre';
+import Lista from './temario/RenderProps/Lista';
+import Item from './temario/RenderProps/Item';
+
+const nombres = [
+  {
+    id: 1,
+    texto: "Paula"
+  },
+  {
+    id: 2,
+    texto: "Pedro"
+  },
+  {
+    id: 3,
+    texto: "Carlos"
+  }
+]
 
 const users = [
   {
@@ -57,9 +79,30 @@ const App = () => {
  */
          /* <EstadosInnecesarios users={users} /> 
  */
-        /* <Formularios /> */
+        /* <Formularios />  */
         
-        <Reloj /> 
+        /* <CronometroUseRef /> */
+
+         /* <FormNoControlados />  */
+    
+         /* <FormNoControlado2 />  */
+
+        /* <Ref /> */
+
+        /* <Padre /> */
+
+        <Lista
+          items={nombres}
+          renderItem={ (item ) => {
+            return (
+              <Item 
+                key={item.id}
+                nombre={item.texto}
+              />
+            )
+          }}
+        />
+        
   )
 }
 
